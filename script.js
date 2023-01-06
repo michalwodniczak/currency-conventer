@@ -16,6 +16,16 @@
         }
     }
 
+    const onFormSubmit = (event) => {
+        const selectElement = document.querySelector(".js-select");
+        const amountValueElement = document.querySelector(".js-amountValue");
+        const amount = amountValueElement.value
+        const result = calculateResult(amount, selectElement);
+
+        event.preventDefault();
+        onResultText(amountValueElement, selectElement, result);
+    }
+
     const onResultText = (amountValueElement, selectElement, result) => {
         const finishTextElement = document.querySelector(".js-finishText")
         finishTextElement.innerText = `Za ${amountValueElement.value}ZŁ otrzymamy ${result.toFixed(2)} ${selectElement.value}`
@@ -23,15 +33,8 @@
 
     const init = () => {
         const formElement = document.querySelector(".js-form");
-        const amountValueElement = document.querySelector(".js-amountValue");
-        const selectElement = document.querySelector(".js-select");
-        const amount = amountValueElement.value
 
-        formElement.addEventListener("submit", (event) => {
-            event.preventDefault();
-            const result = calculateResult(amount, selectElement)
-            onResultText(amountValueElement, selectElement, result)
-        })
+        formElement.addEventListener("submit", onFormSubmit);
     }
     init();
 }
