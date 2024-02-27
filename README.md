@@ -28,4 +28,4 @@ https://michalwodniczak.github.io/currency-conventer/
 4. Convention - BEM
 
 ## Contact
-https://github.com/widmo200
+https://github.com/michalwodniczak
